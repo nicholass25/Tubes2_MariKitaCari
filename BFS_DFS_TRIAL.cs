@@ -8,79 +8,191 @@ using System.Text;
 
 namespace Testing
 {
-    class Search_File
+    class file_folder
     {
-        public string namfile;
+        public string parent;
+        public string direct;
+
+        public file_folder()
+        {
+            this.parent = "";
+            this.direct = "";
+        }
+
+        public file_folder(string parent,string direct)
+        {
+            this.parent = parent;
+            this.direct = direct;
+        }
+
+        public file_folder(file_folder fl)
+        {
+            this.parent = fl.parent;
+            this.direct = fl.direct;
+        }
+    }
+    
+    
+    class file : file_folder
+    {
+        public string namafile { get; set; } = string.Empty;
         public bool found;
         public bool all_occur;
+        public Stack<file_folder> urutan;
 
-        public Search_File(string nama,bool all_occur)
+        public file(string nama, bool all_occur)
         {
-            namfile = nama;
+            namafile = nama;
             found = false;
             this.all_occur = all_occur;
-
+            urutan = new Stack<file_folder>();
         }
-        static void Main(string[] args)
+
+        public void DFS_start(string dirpath)
         {
-            Console.WriteLine("Masukkan nama file yang ingin dicari : ");
-            string namafile = Console.ReadLine();
-
-            Console.WriteLine("\nPencarian Semua kemunculan ? (Y/N) "); //buat sementara sebelum ada GUI :"s
-            string all_occur = Console.ReadLine();
-
-            Search_File Input1 = new Search_File(namafile,true);
-
-
-            //DFS_start(@"D:\for_testing", Input1);
-            BFS(@"D:\for_testing", Input1);
+            this.DFS(new DirectoryInfo(dirpath));
         }
-        static void DFS_start(string dirpath,Search_File fl)
-        {
-            DFS(new DirectoryInfo(dirpath),fl);
-        }
-        static void DFS(DirectoryInfo dir,Search_File fl)
+        public void DFS(DirectoryInfo dir)
         {
             //Console.WriteLine(Path.GetFileName(dir.FullName)); // get just the name of folder
-            Console.WriteLine(dir.FullName); // get the full path of the folder
+            //Console.WriteLine(dir.FullName); // get the full path of the folder
+            file_folder temp = new file_folder();
 
             string[] files = Directory.GetFiles(dir.FullName,"*.*");
 
+
             foreach(string file in files)
             {
-                if (fl.found == false)
+                Console.WriteLine(file);
+                Console.WriteLine(dir.FullName+"\n");
+                temp.direct = file;
+                temp.parent = dir.FullName;
+                //if(!this.urutan.Contains(temp))
+                this.urutan.Push(temp);
+                if (found == false)
                 {
-                    if (Path.GetFileName(file) == fl.namfile)
+                    if (Path.GetFileName(file) == namafile)
                     {
-                        Console.WriteLine(Path.GetFileName(file) + " YEY");
-                        if (fl.all_occur == false) //opsi buat mau all occurance atau enggak
+                        //Console.WriteLine(Path.GetFileName(file) + " YEY");
+                        if (all_occur == false) //opsi buat mau all occurance atau enggak
                         {
                             System.Environment.Exit(0);
                         }
                     }
                     else
                     {
-                        Console.WriteLine(Path.GetFileName(file));
+                        //Console.WriteLine(Path.GetFileName(file));
                     }
                 }
             }
 
             DirectoryInfo[] children = dir.GetDirectories();
-            if (fl.found==false)
+            if (found==false)
             {
                 foreach (DirectoryInfo child in children)
                 {
-                    DFS(child, fl);
+                    Console.WriteLine(child.FullName);
+                    Console.WriteLine(dir.FullName + "\n");
+                    temp.direct = child.FullName;
+                    temp.parent = dir.FullName;
+                    //if(!this.urutan.Contains(temp))
+                    this.urutan.Push(temp);
+                    this.DFS(child);
                 }
             }
         }
-        static void BFS(string dir,Search_File fl)
-        {
 
+        public void show_queue()
+        {
+            file_folder tempo;
+            while (urutan.Count > 0)
+            {
+                tempo = new file_folder(this.urutan.Pop());
+
+                Console.WriteLine(tempo.direct);
+            }
         }
     }
 
+
+    // BFS start disini, class lainnya ga ngaruhh
+    /* BFS nya pake Queue jadi itu semua path(folder/file) di masukin queue
+     * itu tinggal nyari cara bedain folder sama file aja, klo misal folder berarti isinya dibuka lagi terus child nya di enque
+     * klo file di cocokin sama file yg di cari sama atau engga*/
+
+    class file_bfs : file_folder
+    {
+        public string namafile { get; set; } = string.Empty;
+        public bool found;
+        public bool all_occur;
+
+        public file_bfs(string nama, bool all_occur)
+        {
+            namafile = nama;
+            found = false;
+            this.all_occur = all_occur;
+        }
+
+        public void BFS(string dirpath)
+        {
+            Queue<string> dir_visited = new Queue<string>();
+            string[] folder = Directory.GetDirectories(dirpath, "*", SearchOption.AllDirectories);
+            foreach(string fold in folder)
+            {
+                dir_visited.Enqueue(fold);
+            }
+            string[] files = Directory.GetFiles(current_directory.FullName, "*.*",SearchOption.TopDirectoryOnly);
+            foreach(string file in files)
+            {
+                dir_visited.Enqueue(file);
+            }
+            while (dir_visited.Count > 0)
+            {
+                string now = dir_visited.Dequeue();
+                
+            }
+        }
+    }
+
+
+    // klo mau nger un program panggil aja fungsi nya sama sesuaiin parameter yg dipake ajaa
+    class Program
+    {
+        public static void Main(String[] args)
+        {
+            bool temu;
+            string nama, opsi;
+
+            Console.WriteLine("Masukkan nama file yang ingin dicari : ");
+            nama = Console.ReadLine();
+            while (nama is null)
+            {
+                nama = Console.ReadLine();
+            }
+
+            Console.WriteLine("\nPencarian Semua kemunculan ? (Y/N) "); //buat sementara sebelum ada GUI :"s
+            opsi = Console.ReadLine();
+            if (opsi == "Y")
+                temu = true;
+            else
+                temu = false;
+
+            file fl = new file(nama, temu);
+
+            fl.DFS_start(@"D:\for_testing");
+            //fl.BFS(@"D:\for_testing", namafile,all_occur);
+
+            //fl.show_queue();
+        }
+    }
 }
+
+
+
+
+
+
+
 
 //class Program
 //{
@@ -161,37 +273,38 @@ namespace Testing
 
 
 //BAWAH INI HARUSNYA BFS CMN MASIH SALAH
-
 //Queue<DirectoryInfo> dir_visited = new Queue<DirectoryInfo>();
 //dir_visited.Enqueue(new DirectoryInfo(dir));
 //while (dir_visited.Count > 0)
 //{
 //    DirectoryInfo current_directory = dir_visited.Dequeue();
-//    string[] files = Directory.GetFiles(current_directory.FullName, "*.*", SearchOption.TopDirectoryOnly);
 
 //    Console.WriteLine(current_directory.FullName);
-//    //foreach (string file in files)
-//    //{
-//    //    if (fl.found == false)
-//    //    {
-//    //        if (Path.GetFileName(file) == fl.namfile)
-//    //        {
-//    //            Console.WriteLine(Path.GetFileName(file) + " YEY");
-//    //            if (fl.all_occur == false) //opsi buat mau all occurance atau enggak
-//    //            {
-//    //                System.Environment.Exit(0);
-//    //            }
-//    //        }
-//    //        else
-//    //        {
-//    //            Console.WriteLine(Path.GetFileName(file));
-//    //        }
-//    //    }
-//    //}
 
 //    DirectoryInfo[] children = current_directory.GetDirectories();
 //    foreach (DirectoryInfo child in children)
 //    {
 //        dir_visited.Enqueue(child);
 //    }
+
+//    string[] files = Directory.GetFiles(current_directory.FullName, "*.*");
+//    foreach (string file in files)
+//    {
+//        if (fl.found == false)
+//        {
+//            if (Path.GetFileName(file) == fl.namfile)
+//            {
+//                Console.WriteLine(file + " YEY");
+//                if (fl.all_occur == false) //opsi buat mau all occurance atau enggak
+//                {
+//                    System.Environment.Exit(0);
+//                }
+//            }
+//            else
+//            {
+//                Console.WriteLine(Path.GetFileName(file));
+//            }
+//        }
+//    }
 //}
+
