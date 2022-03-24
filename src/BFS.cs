@@ -63,23 +63,23 @@ namespace MariKitaCari
                     }
                 }
                 // if file
-                else
-                {
-                    if (found == false)
-                    {
-                        if (Path.GetFileName(now) == Namafile)
-                        {
-                            if (all_occur == false)
-                            {
-                                // System.Environment.Exit(0);
-                            }
-                        }
-                        else
-                        {
-                            //
-                        }
-                    }
-                }
+                // else
+                // {
+                //     if (found == false)
+                //     {
+                //         if (Path.GetFileName(now) == Namafile)
+                //         {
+                //             if (all_occur == false)
+                //             {
+                //                 // System.Environment.Exit(0);
+                //             }
+                //         }
+                //         else
+                //         {
+                //             //
+                //         }
+                //     }
+                // }
             }
         }
     }

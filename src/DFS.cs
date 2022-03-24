@@ -30,20 +30,20 @@ namespace MariKitaCari
             foreach (string file in files)
             {
                 urutan.Enqueue(new Folder(dir.FullName, file));
-                if (found == false)
-                {
-                    if (Path.GetFileName(file) == Namafile)
-                    {
-                        if (all_occur == false)
-                        {
-                            // System.Environment.Exit(0);
-                        }
-                    }
-                    else
-                    {
-                        //
-                    }
-                }
+                // if (found == false)
+                // {
+                //     if (Path.GetFileName(file) == Namafile)
+                //     {
+                //         if (all_occur == false)
+                //         {
+                //             // System.Environment.Exit(0);
+                //         }
+                //     }
+                //     else
+                //     {
+                //         //
+                //     }
+                // }
             }
 
             DirectoryInfo[] children = dir.GetDirectories();

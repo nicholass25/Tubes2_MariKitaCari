@@ -74,6 +74,9 @@ namespace MariKitaCari
                     panel1.Controls.Clear();
                     Timer.Start();
                     BFS bfs_search = new BFS(textBoxFileName.Text, checkBoxOccurence.Checked);
+                    Queue<string> solution = new Queue<string>(); //Queue of solution
+                    bool temu=false; // handle all occur atau engga
+
                     bfs_search.BFS_Search(root_folder);
                     foreach (Folder anak in bfs_search.bfs_show)
                     {
@@ -87,11 +90,14 @@ namespace MariKitaCari
                                 break;
                             }
                         }
-                        if (String.Compare(Path.GetFileName(anak.direct), bfs_search.Namafile) == 0)
+                        if (String.Compare(Path.GetFileName(anak.direct), bfs_search.Namafile) == 0 && temu==false)
                         {
+                            if(checkBoxOccurence.Checked==false){
+                                temu=true;
+                            }
                             graph.FindNode(anak.direct).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
                             LinkLabel label = new LinkLabel();
-                            label.Text = Path.GetFullPath(anak.direct);
+                            label.Text = anak.direct;
                             listLinkPath.Controls.Add(label);
                         }
                     }
@@ -115,6 +121,9 @@ namespace MariKitaCari
                     panel1.Controls.Clear();
                     Timer.Start();
                     DFS dfs_search = new DFS(textBoxFileName.Text, checkBoxOccurence.Checked);
+                    Queue<string> solution = new Queue<string>(); //Queue of solution
+                    bool temu=false; // handle all occur atau engga
+
                     // create graph content
                     dfs_search.DFS_Start(root_folder);
                     foreach (Folder anak in dfs_search.urutan)
@@ -129,9 +138,13 @@ namespace MariKitaCari
                                 break;
                             }
                         }
-                        if (String.Compare(Path.GetFileName(anak.direct), dfs_search.Namafile) == 0)
+                        if (String.Compare(Path.GetFileName(anak.direct), dfs_search.Namafile) == 0 && temu==false)
                         {
+                            if(checkBoxOccurence.Checked==false){
+                                temu=true;
+                            }
                             graph.FindNode(anak.direct).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
+
                         }
                     }
                     Timer.Stop();
