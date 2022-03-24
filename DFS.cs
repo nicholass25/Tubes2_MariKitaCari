@@ -4,58 +4,50 @@ namespace DFS_find
 {
     public class DFS
     {
-        public string namafile { get; set; } = string.Empty;
+        public string FileName { get; set; } = string.Empty;
         public bool found;
-        public bool all_occur;
+        public bool Occur;
         public Queue<folder> urutan = new Queue<folder>();
 
-        public DFS(string nama, bool all_occur)
+        public DFS(string nama, bool Occur)
         {
-            namafile = nama;
+            FileName = nama;
             found = false;
-            this.all_occur = all_occur;
+            this.Occur = Occur;
         }
 
-        public void DFS_start(string dirpath)
+        public void DFS_start(string Path)
         {
-            this.DFS_Search(new DirectoryInfo(dirpath));
+            this.DFS_Search(new DirectoryInfo(Path));
         }
-        public void DFS_Search(DirectoryInfo dir)
+        public void DFS_Search(DirectoryInfo directory)
         {
-            //Console.WriteLine(Path.GetFileName(dir.FullName)); // get just the name of folder
-            //Console.WriteLine(dir.FullName); // get the full path of the folder
-            string[] files = Directory.GetFiles(dir.FullName, "*.*");
+            string[] Files = Directory.GetFiles(directory.FullName, "*.*");
             if (urutan.Count == 0)
-                urutan.Enqueue(new folder("", dir.FullName));
+                urutan.Enqueue(new folder("", directory.FullName));
 
-            foreach (string file in files)
+            foreach (string file in Files)
             {
-                //Console.WriteLine(file);
-                urutan.Enqueue(new folder(dir.FullName, file));
+                urutan.Enqueue(new folder(directory.FullName, file));
                 if (found == false)
                 {
-                    if (Path.GetFileName(file) == namafile)
+                    if (Path.GetFileName(file) == FileName)
                     {
-                        //Console.WriteLine(Path.GetFileName(file) + " YEY");
-                        if (all_occur == false) //opsi buat mau all occurance atau enggak
+                        //Jika All_Occurance False, Pragram akan jalan terus
+                        if (Occur == false)
                         {
                             System.Environment.Exit(0);
                         }
                     }
-                    else
-                    {
-                        //Console.WriteLine(Path.GetFileName(file));
-                    }
                 }
             }
 
-            DirectoryInfo[] children = dir.GetDirectories();
+            DirectoryInfo[] children = directory.GetDirectories();
             if (found == false)
             {
                 foreach (DirectoryInfo child in children)
                 {
-                    //Console.WriteLine(child.FullName);
-                    urutan.Enqueue(new folder(dir.FullName, child.FullName));
+                    urutan.Enqueue(new folder(directory.FullName, child.FullName));
                     this.DFS_Search(child);
                 }
             }

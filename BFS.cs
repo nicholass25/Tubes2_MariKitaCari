@@ -4,82 +4,73 @@ namespace BFS_find
 {
     class BFS
     {
-        public string namafile { get; set; } = string.Empty;
-        public bool found;
-        public bool all_occur;
-        public Queue<folder> bfs_show = new Queue<folder>(); // Queue buat output (jaga jagabuat di graph)
+        public string FileName { get; set; } = string.Empty;
+        public bool Found;
+        public bool Occur;
+        public Queue<folder> BFS_show = new Queue<folder>();
 
-        public BFS(string nama, bool all_occur)
+        public BFS(string nama, bool Occur)
         {
-            namafile = nama;
-            found = false;
-            this.all_occur = all_occur;
+            FileName = nama;
+            Found = false;
+            this.Occur = Occur;
         }
 
-        public void BFS_search(string dirpath)
+        public void BFS_search(string path)
         {
-            Queue<string> dir_visited = new Queue<string>(); // Queue buat alur bfs
+            // Queue buat alur BFS
+            Queue<string> Visited = new Queue<string>();
 
+            string[] folder = Directory.GetDirectories(path, "*", SearchOption.TopDirectoryOnly);
 
-            //dir_visited.Enqueue(dirpath);
-            string[] folder = Directory.GetDirectories(dirpath, "*", SearchOption.TopDirectoryOnly);
-
-            bfs_show.Enqueue(new folder("", dirpath));
+            BFS_show.Enqueue(new folder("", path));
 
             foreach (string fold in folder)
             {
-                //Console.WriteLine(fold);
-                dir_visited.Enqueue(fold);
-                bfs_show.Enqueue(new folder(dirpath, fold));
+                Visited.Enqueue(fold);
+                BFS_show.Enqueue(new folder(path, fold));
             }
 
-            string[] files = Directory.GetFiles(dirpath, "*.*", SearchOption.TopDirectoryOnly);
+            string[] files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
             foreach (string file in files)
             {
-                //Console.WriteLine(file);
-                dir_visited.Enqueue(file);
-                bfs_show.Enqueue(new folder(dirpath, file));
+                Visited.Enqueue(file);
+                BFS_show.Enqueue(new folder(path, file));
             }
 
-            while (dir_visited.Count > 0)
+            while (Visited.Count > 0)
             {
-                string now = dir_visited.Dequeue();
-                //Console.WriteLine(now);
+                string now = Visited.Dequeue();
                 FileAttributes trib = File.GetAttributes(now);
 
-
-                if (trib.HasFlag(FileAttributes.Directory)) // its a folder
+                //Folder
+                if (trib.HasFlag(FileAttributes.Directory))
                 {
                     string[] fold = Directory.GetDirectories(now, "*", SearchOption.TopDirectoryOnly);
                     foreach (string fd in fold)
                     {
-                        dir_visited.Enqueue(fd);
-                        //Console.WriteLine(fd);
-                        bfs_show.Enqueue(new folder(now, fd));
+                        Visited.Enqueue(fd);
+                        BFS_show.Enqueue(new folder(now, fd));
                     }
                     string[] files_child = Directory.GetFiles(now, "*.*", SearchOption.TopDirectoryOnly);
                     foreach (string file in files_child)
                     {
-                        dir_visited.Enqueue(file);
-                        //Console.WriteLine(file);
-                        bfs_show.Enqueue(new folder(now, file));
+                        Visited.Enqueue(file);
+                        BFS_show.Enqueue(new folder(now, file));
                     }
                 }
-                else // its a file
+                //File
+                else
                 {
-                    if (found == false)
+                    if (Found == false)
                     {
-                        if (Path.GetFileName(now) == namafile)
+                        if (Path.GetFileName(now) == FileName)
                         {
-                            //Console.WriteLine(Path.GetFileName(file) + " YEY");
-                            if (all_occur == false) //opsi buat mau all occurance atau enggak
+                            //Jika All_Occurance False, Pragram akan jalan terus
+                            if (Occur == false)
                             {
                                 System.Environment.Exit(0);
                             }
-                        }
-                        else
-                        {
-                            //Console.WriteLine(Path.GetFileName(file));
                         }
                     }
                 }
