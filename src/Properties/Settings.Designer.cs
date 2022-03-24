@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tubes2Stima.Properties
+namespace MariKitaCari.Properties
 {
 
 
