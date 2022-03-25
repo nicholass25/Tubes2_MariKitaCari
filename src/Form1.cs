@@ -87,11 +87,15 @@ namespace MariKitaCari
                             {
                                 if (bfs_search.jalur.Contains(anak.direct))
                                 {
-                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+                                }
+                                else if(temu==true && bfs_search.all_occur==false)
+                                {
+                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Grey;
                                 }
                                 else
                                 {
-                                    graph.AddEdge(ortu.direct, anak.direct);
+                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                                 }
                                 graph.FindNode(anak.parent).Label.Text = new DirectoryInfo(anak.parent).Name;
                                 graph.FindNode(anak.direct).Label.Text = new DirectoryInfo(anak.direct).Name;
@@ -141,11 +145,15 @@ namespace MariKitaCari
                             {
                                 if (dfs_search.jalur.Contains(anak.direct))
                                 {
-                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Green;
+                                }
+                                else if (temu==true && dfs_search.all_occur==false)
+                                {
+                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Grey;
                                 }
                                 else
                                 {
-                                    graph.AddEdge(ortu.direct, anak.direct);
+                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
                                 }
                                 graph.FindNode(anak.parent).Label.Text = new DirectoryInfo(anak.parent).Name;
                                 graph.FindNode(anak.direct).Label.Text = new DirectoryInfo(anak.direct).Name;
@@ -155,6 +163,7 @@ namespace MariKitaCari
                         if (String.Compare(Path.GetFileName(anak.direct), dfs_search.Namafile) == 0 && i < dfs_search.solution.Count())
                         {
                             graph.FindNode(anak.direct).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
+                            temu=true;
                             i++;
                         }
                     }
