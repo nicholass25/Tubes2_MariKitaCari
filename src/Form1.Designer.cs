@@ -318,7 +318,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.AutoScrollMargin = new System.Drawing.Size(20, 20);
             this.flowLayoutPanel1.AutoScrollMinSize = new System.Drawing.Size(0, 200);
             this.flowLayoutPanel1.Controls.Add(this.linkLabelList);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 417);

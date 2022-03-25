@@ -137,15 +137,23 @@ namespace MariKitaCari
                     int countLink = 0;
                     string[] arrayLink = listLink.ToArray();
                     string[] arrayPath = listPath.ToArray();
-                    foreach (var link in arrayLink)
+                    if (arrayLink.Length > 0)
                     {
-                        linkLabelList.Text += arrayPath[countLink];
-                        linkLabelList.Text += "\n";
-                        linkLabelList.Links.Add(charCounter, arrayPath[countLink].Length, arrayLink[countLink]);
-                        charCounter += (arrayPath[countLink].Length + 1);
-                        countLink++;
+                        foreach (var link in arrayLink)
+                        {
+                            linkLabelList.Text += arrayPath[countLink];
+                            linkLabelList.Text += "\n";
+                            linkLabelList.Links.Add(charCounter, arrayPath[countLink].Length, arrayLink[countLink]);
+                            charCounter += (arrayPath[countLink].Length + 1);
+                            countLink++;
+                        }
+                        linkLabelList.LinkClicked += (s, eLink) => Process.Start((string)eLink.Link.LinkData);
                     }
-                    linkLabelList.LinkClicked += (s, eLink) => Process.Start((string)eLink.Link.LinkData);
+                    else
+                    {
+                        linkLabelList.Text += "Tidak ada path yang sesuai!";
+                    }
+
 
                     Timer.Stop();
                     labelOutputTimeSpent.Text = Timer.Elapsed.TotalSeconds.ToString() + " detik";
@@ -210,15 +218,22 @@ namespace MariKitaCari
                     int countLink = 0;
                     string[] arrayLink = listLink.ToArray();
                     string[] arrayPath = listPath.ToArray();
-                    foreach (var link in arrayLink)
+                    if (arrayLink.Length > 0)
                     {
-                        linkLabelList.Text += arrayPath[countLink];
-                        linkLabelList.Text += "\n";
-                        linkLabelList.Links.Add(charCounter, arrayPath[countLink].Length, arrayLink[countLink]);
-                        charCounter += (arrayPath[countLink].Length + 1);
-                        countLink++;
+                        foreach (var link in arrayLink)
+                        {
+                            linkLabelList.Text += arrayPath[countLink];
+                            linkLabelList.Text += "\n";
+                            linkLabelList.Links.Add(charCounter, arrayPath[countLink].Length, arrayLink[countLink]);
+                            charCounter += (arrayPath[countLink].Length + 1);
+                            countLink++;
+                        }
+                        linkLabelList.LinkClicked += (s, eLink) => Process.Start((string)eLink.Link.LinkData);
                     }
-                    linkLabelList.LinkClicked += (s, eLink) => Process.Start((string)eLink.Link.LinkData);
+                    else
+                    {
+                        linkLabelList.Text += "Tidak ada path yang sesuai!";
+                    }
 
                     Timer.Stop();
                     labelOutputTimeSpent.Text = Timer.Elapsed.TotalSeconds.ToString() + " detik";
