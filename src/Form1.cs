@@ -31,6 +31,10 @@ namespace MariKitaCari
             viewer.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.Controls.Add(viewer);
             panel1.ResumeLayout();
+            //ScrollBar vScrollBar1 = new VScrollBar();
+            //vScrollBar1.Dock = DockStyle.Right;
+            //vScrollBar1.Scroll += (sender, eScroll) => { flowLayoutPanel1.VerticalScroll.Value = vScrollBar1.Value; };
+            //flowLayoutPanel1.Controls.Add(vScrollBar1);
         }
 
         private void Form1_Load(object sender, EventArgs e)

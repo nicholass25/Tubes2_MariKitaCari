@@ -241,20 +241,17 @@
             this.layoutRight.Location = new System.Drawing.Point(262, 48);
             this.layoutRight.Name = "layoutRight";
             this.layoutRight.RowCount = 6;
-            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.738544F));
-            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.26145F));
-            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.267442F));
+            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.73256F));
+            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
             this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
-            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.layoutRight.Size = new System.Drawing.Size(510, 502);
             this.layoutRight.TabIndex = 2;
             // 
             // linkLabelList
             // 
-            this.linkLabelList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelList.AutoSize = true;
             this.linkLabelList.Location = new System.Drawing.Point(3, 0);
             this.linkLabelList.Name = "linkLabelList";
@@ -281,16 +278,16 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(3, 29);
+            this.panel1.Location = new System.Drawing.Point(3, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(504, 354);
+            this.panel1.Size = new System.Drawing.Size(504, 316);
             this.panel1.TabIndex = 3;
             // 
             // labelTimeSpent
             // 
             this.labelTimeSpent.AutoSize = true;
             this.labelTimeSpent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimeSpent.Location = new System.Drawing.Point(3, 386);
+            this.labelTimeSpent.Location = new System.Drawing.Point(3, 347);
             this.labelTimeSpent.Name = "labelTimeSpent";
             this.labelTimeSpent.Size = new System.Drawing.Size(71, 13);
             this.labelTimeSpent.TabIndex = 2;
@@ -299,7 +296,7 @@
             // labelOutputTimeSpent
             // 
             this.labelOutputTimeSpent.AutoSize = true;
-            this.labelOutputTimeSpent.Location = new System.Drawing.Point(3, 405);
+            this.labelOutputTimeSpent.Location = new System.Drawing.Point(3, 369);
             this.labelOutputTimeSpent.Name = "labelOutputTimeSpent";
             this.labelOutputTimeSpent.Size = new System.Drawing.Size(112, 13);
             this.labelOutputTimeSpent.TabIndex = 4;
@@ -309,7 +306,7 @@
             // 
             this.labelFilePath.AutoSize = true;
             this.labelFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFilePath.Location = new System.Drawing.Point(3, 429);
+            this.labelFilePath.Location = new System.Drawing.Point(3, 390);
             this.labelFilePath.Name = "labelFilePath";
             this.labelFilePath.Size = new System.Drawing.Size(57, 13);
             this.labelFilePath.TabIndex = 1;
@@ -321,12 +318,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.AutoScrollMinSize = new System.Drawing.Size(504, 48);
-            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.AutoScrollMargin = new System.Drawing.Size(20, 20);
+            this.flowLayoutPanel1.AutoScrollMinSize = new System.Drawing.Size(0, 200);
             this.flowLayoutPanel1.Controls.Add(this.linkLabelList);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 451);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 417);
+            this.flowLayoutPanel1.MaximumSize = new System.Drawing.Size(504, 82);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(504, 48);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(504, 82);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // Form1
