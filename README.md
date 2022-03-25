@@ -1,4 +1,4 @@
-# TubesStima2_MariKitaCari
+# Tubes Stima 2 - MariKitaCari
 
 # Penggunaan Algoritma BFS dan DFS Untuk Mencari File dalam Folder
 
@@ -10,6 +10,6 @@ Tugas Besar II IF2211 Strategi Algoritma
 
 ## Author
 
-13520035 - Damianus Clairvoyance Diva Putra
-13520121 - Nicholas Budiono
-13520148 - Fikri Ihsan Fadhiilah
+- 13520035 - Damianus Clairvoyance Diva Putra
+- 13520121 - Nicholas Budiono
+- 13520148 - Fikri Ihsan Fadhiilah
