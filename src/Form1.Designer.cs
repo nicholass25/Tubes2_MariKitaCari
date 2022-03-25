@@ -43,17 +43,17 @@
             this.radiobtnDFS = new System.Windows.Forms.RadioButton();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.layoutRight = new System.Windows.Forms.TableLayoutPanel();
-            this.labelOutput = new System.Windows.Forms.Label();
-            this.labelFilePath = new System.Windows.Forms.Label();
-            this.labelTimeSpent = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelOutputTimeSpent = new System.Windows.Forms.Label();
-            this.listLinkPath = new System.Windows.Forms.TableLayoutPanel();
             this.linkLabelList = new System.Windows.Forms.LinkLabel();
+            this.labelOutput = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelTimeSpent = new System.Windows.Forms.Label();
+            this.labelOutputTimeSpent = new System.Windows.Forms.Label();
+            this.labelFilePath = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutTop.SuspendLayout();
             this.layoutLeft.SuspendLayout();
             this.layoutRight.SuspendLayout();
-            this.listLinkPath.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutTop
@@ -233,22 +233,35 @@
             this.layoutRight.ColumnCount = 1;
             this.layoutRight.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.layoutRight.Controls.Add(this.labelOutput, 0, 0);
-            this.layoutRight.Controls.Add(this.labelFilePath, 0, 2);
-            this.layoutRight.Controls.Add(this.labelTimeSpent, 0, 4);
             this.layoutRight.Controls.Add(this.panel1, 0, 1);
-            this.layoutRight.Controls.Add(this.labelOutputTimeSpent, 0, 5);
-            this.layoutRight.Controls.Add(this.listLinkPath, 0, 3);
+            this.layoutRight.Controls.Add(this.labelTimeSpent, 0, 2);
+            this.layoutRight.Controls.Add(this.labelOutputTimeSpent, 0, 3);
+            this.layoutRight.Controls.Add(this.labelFilePath, 0, 4);
+            this.layoutRight.Controls.Add(this.flowLayoutPanel1, 0, 5);
             this.layoutRight.Location = new System.Drawing.Point(262, 48);
             this.layoutRight.Name = "layoutRight";
             this.layoutRight.RowCount = 6;
             this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.738544F));
             this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.26145F));
-            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
-            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.layoutRight.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
             this.layoutRight.Size = new System.Drawing.Size(510, 502);
             this.layoutRight.TabIndex = 2;
+            // 
+            // linkLabelList
+            // 
+            this.linkLabelList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelList.AutoSize = true;
+            this.linkLabelList.Location = new System.Drawing.Point(3, 0);
+            this.linkLabelList.Name = "linkLabelList";
+            this.linkLabelList.Size = new System.Drawing.Size(65, 13);
+            this.linkLabelList.TabIndex = 0;
+            this.linkLabelList.TabStop = true;
+            this.linkLabelList.Text = "linkLabelList";
             // 
             // labelOutput
             // 
@@ -263,66 +276,58 @@
             this.labelOutput.Text = "Output";
             this.labelOutput.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // labelFilePath
-            // 
-            this.labelFilePath.AutoSize = true;
-            this.labelFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFilePath.Location = new System.Drawing.Point(3, 371);
-            this.labelFilePath.Name = "labelFilePath";
-            this.labelFilePath.Size = new System.Drawing.Size(57, 13);
-            this.labelFilePath.TabIndex = 1;
-            this.labelFilePath.Text = "File Path";
-            // 
-            // labelTimeSpent
-            // 
-            this.labelTimeSpent.AutoSize = true;
-            this.labelTimeSpent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimeSpent.Location = new System.Drawing.Point(3, 461);
-            this.labelTimeSpent.Name = "labelTimeSpent";
-            this.labelTimeSpent.Size = new System.Drawing.Size(71, 13);
-            this.labelTimeSpent.TabIndex = 2;
-            this.labelTimeSpent.Text = "Time Spent";
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Location = new System.Drawing.Point(3, 28);
+            this.panel1.Location = new System.Drawing.Point(3, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(504, 340);
+            this.panel1.Size = new System.Drawing.Size(504, 354);
             this.panel1.TabIndex = 3;
+            // 
+            // labelTimeSpent
+            // 
+            this.labelTimeSpent.AutoSize = true;
+            this.labelTimeSpent.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimeSpent.Location = new System.Drawing.Point(3, 386);
+            this.labelTimeSpent.Name = "labelTimeSpent";
+            this.labelTimeSpent.Size = new System.Drawing.Size(71, 13);
+            this.labelTimeSpent.TabIndex = 2;
+            this.labelTimeSpent.Text = "Time Spent";
             // 
             // labelOutputTimeSpent
             // 
             this.labelOutputTimeSpent.AutoSize = true;
-            this.labelOutputTimeSpent.Location = new System.Drawing.Point(3, 481);
+            this.labelOutputTimeSpent.Location = new System.Drawing.Point(3, 405);
             this.labelOutputTimeSpent.Name = "labelOutputTimeSpent";
             this.labelOutputTimeSpent.Size = new System.Drawing.Size(112, 13);
             this.labelOutputTimeSpent.TabIndex = 4;
             this.labelOutputTimeSpent.Text = "labelOutputTimeSpent";
             // 
-            // listLinkPath
+            // labelFilePath
             // 
-            this.listLinkPath.ColumnCount = 1;
-            this.listLinkPath.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.listLinkPath.Controls.Add(this.linkLabelList, 0, 0);
-            this.listLinkPath.Location = new System.Drawing.Point(3, 390);
-            this.listLinkPath.Name = "listLinkPath";
-            this.listLinkPath.RowCount = 1;
-            this.listLinkPath.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.listLinkPath.Size = new System.Drawing.Size(504, 68);
-            this.listLinkPath.TabIndex = 5;
+            this.labelFilePath.AutoSize = true;
+            this.labelFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFilePath.Location = new System.Drawing.Point(3, 429);
+            this.labelFilePath.Name = "labelFilePath";
+            this.labelFilePath.Size = new System.Drawing.Size(57, 13);
+            this.labelFilePath.TabIndex = 1;
+            this.labelFilePath.Text = "File Path";
             // 
-            // linkLabelList
+            // flowLayoutPanel1
             // 
-            this.linkLabelList.AutoSize = true;
-            this.linkLabelList.Location = new System.Drawing.Point(3, 0);
-            this.linkLabelList.Name = "linkLabelList";
-            this.linkLabelList.Size = new System.Drawing.Size(65, 13);
-            this.linkLabelList.TabIndex = 0;
-            this.linkLabelList.TabStop = true;
-            this.linkLabelList.Text = "linkLabelList";
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.AutoScrollMinSize = new System.Drawing.Size(504, 48);
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.linkLabelList);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 451);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(504, 48);
+            this.flowLayoutPanel1.TabIndex = 5;
             // 
             // Form1
             // 
@@ -342,8 +347,8 @@
             this.layoutLeft.PerformLayout();
             this.layoutRight.ResumeLayout(false);
             this.layoutRight.PerformLayout();
-            this.listLinkPath.ResumeLayout(false);
-            this.listLinkPath.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
     }
@@ -370,9 +375,9 @@
     private System.Windows.Forms.Label labelTimeSpent;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelOutputTimeSpent;
-        private System.Windows.Forms.TableLayoutPanel listLinkPath;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabelList;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
 

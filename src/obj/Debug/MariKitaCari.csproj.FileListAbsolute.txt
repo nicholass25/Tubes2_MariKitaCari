@@ -1,6 +1,0 @@
-D:\ITB\SEMESTER 4\IF2211 Stima\Tubes2\TubesStima2_MariKitaCari\src\obj\Debug\MariKitaCari.csproj.AssemblyReference.cache
-D:\ITB\SEMESTER 4\IF2211 Stima\Tubes2\TubesStima2_MariKitaCari\src\obj\Debug\MariKitaCari.csproj.SuggestedBindingRedirects.cache
-D:\ITB\SEMESTER 4\IF2211 Stima\Tubes2\TubesStima2_MariKitaCari\src\obj\Debug\MariKitaCari.Form1.resources
-D:\ITB\SEMESTER 4\IF2211 Stima\Tubes2\TubesStima2_MariKitaCari\src\obj\Debug\MariKitaCari.Properties.Resources.resources
-D:\ITB\SEMESTER 4\IF2211 Stima\Tubes2\TubesStima2_MariKitaCari\src\obj\Debug\MariKitaCari.csproj.GenerateResource.cache
-D:\ITB\SEMESTER 4\IF2211 Stima\Tubes2\TubesStima2_MariKitaCari\src\obj\Debug\MariKitaCari.csproj.CoreCompileInputs.cache

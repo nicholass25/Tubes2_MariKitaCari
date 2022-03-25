@@ -72,8 +72,15 @@ namespace MariKitaCari
             else
             {
                 string root_folder = labelPath.Text;
+                
+                // clear list to reuse
                 List<string> listLink = new List<string>();
+                List<string> listPath = new List<string>();
                 listLink.Clear();
+                listPath.Clear();
+                linkLabelList.Text = "";
+                linkLabelList.Links.Clear();
+
                 if (radiobtnBFS.Checked)
                 {
                     //create a viewer object 
@@ -115,16 +122,26 @@ namespace MariKitaCari
                         if (String.Compare(Path.GetFileName(anak.direct), bfs_search.Namafile) == 0 && i < bfs_search.solution.Count())
                         {
                             graph.FindNode(anak.direct).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
-                            temu=true;
+                            temu = true;
                             i++;
-                            listLink.Add(anak.direct);
-                            //LinkLabel label = new LinkLabel();
-                            //label.Text = anak.direct;
-                            //listLinkPath.Controls.Add(label);
+                            listPath.Add(anak.direct);
+                            listLink.Add(anak.parent);
                         }
                     }
-                    
+
+                    int charCounter = 0;
+                    int countLink = 0;
                     string[] arrayLink = listLink.ToArray();
+                    string[] arrayPath = listPath.ToArray();
+                    foreach (var link in arrayLink)
+                    {
+                        linkLabelList.Text += arrayPath[countLink];
+                        linkLabelList.Text += "\n";
+                        linkLabelList.Links.Add(charCounter, arrayPath[countLink].Length, arrayLink[countLink]);
+                        charCounter += (arrayPath[countLink].Length + 1);
+                        countLink++;
+                    }
+                    linkLabelList.LinkClicked += (s, eLink) => Process.Start((string)eLink.Link.LinkData);
 
                     Timer.Stop();
                     labelOutputTimeSpent.Text = Timer.Elapsed.TotalSeconds.ToString() + " detik";
@@ -180,8 +197,25 @@ namespace MariKitaCari
                             graph.FindNode(anak.direct).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
                             temu = true;
                             i++;
+                            listPath.Add(anak.direct);
+                            listLink.Add(anak.parent);
                         }
                     }
+
+                    int charCounter = 0;
+                    int countLink = 0;
+                    string[] arrayLink = listLink.ToArray();
+                    string[] arrayPath = listPath.ToArray();
+                    foreach (var link in arrayLink)
+                    {
+                        linkLabelList.Text += arrayPath[countLink];
+                        linkLabelList.Text += "\n";
+                        linkLabelList.Links.Add(charCounter, arrayPath[countLink].Length, arrayLink[countLink]);
+                        charCounter += (arrayPath[countLink].Length + 1);
+                        countLink++;
+                    }
+                    linkLabelList.LinkClicked += (s, eLink) => Process.Start((string)eLink.Link.LinkData);
+
                     Timer.Stop();
                     labelOutputTimeSpent.Text = Timer.Elapsed.TotalSeconds.ToString() + " detik";
                     //bind the graph to the viewer 
@@ -197,26 +231,6 @@ namespace MariKitaCari
                     MessageBox.Show("Pilih salah satu metode, gan!", "Gagal Ngab!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-        /*
-        public void OnLinkClicked(LinkLabelLinkClickedEventArgs e)
-        {
-            Process.Start(e.Link.LinkData as string);
-        }
-        */
-
-        private void linkLabelList_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)
-        {
-            // Determine which link was clicked within the LinkLabel.
-            this.linkLabelList.Links[linkLabelList.Links.IndexOf(e.Link)].Visited = true;
-
-            // Display the appropriate link based on the value of the 
-            // LinkData property of the Link object.
-            string target = e.Link.LinkData as string;
-
-            // If the value looks like a URL, navigate to it.
-            // Otherwise, display it in a message box.
-            Process.Start(target);
         }
     }
 }
