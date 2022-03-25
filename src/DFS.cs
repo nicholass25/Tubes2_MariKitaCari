@@ -46,7 +46,7 @@ namespace MariKitaCari
             this.DFS_Search(new DirectoryInfo(dirpath));
             foreach (string sol in this.solution)
             {
-                foreach (file_folder ok in this.urutan)
+                foreach (Folder ok in this.urutan)
                 {
                     int coba = this.substring(ok.direct, sol);
                     if (coba != -1)
@@ -65,7 +65,7 @@ namespace MariKitaCari
             foreach (string file in files)
             {
                 urutan.Enqueue(new Folder(dir.FullName, file));
-                if (String.Compare(Path.GetFileName(file), namafile) == 0 && this.found == false)
+                if (string.Compare(Path.GetFileName(file), Namafile) == 0 && this.found == false)
                 {
                     if (this.all_occur == false)
                     {
@@ -84,4 +84,3 @@ namespace MariKitaCari
         }
     }
 }
-

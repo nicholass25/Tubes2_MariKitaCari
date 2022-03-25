@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using System.IO;
 
@@ -18,6 +17,29 @@ namespace MariKitaCari
             Namafile = nama;
             found = false;
             this.all_occur = all_occur;
+        }
+
+        public int substring(string sub, string main)
+        {
+            int M = sub.Length;
+            int N = main.Length;
+
+            /* A loop to slide pat[] one by one */
+            for (int i = 0; i <= N - M; i++)
+            {
+                int j;
+
+                /* For current index i, check for
+                pattern match */
+                for (j = 0; j < M; j++)
+                    if (main[i + j] != sub[j])
+                        break;
+
+                if (j == M)
+                    return i;
+            }
+
+            return -1;
         }
 
         public void BFS_Search(string dirpath)
@@ -66,7 +88,7 @@ namespace MariKitaCari
                 }
                 else
                 {
-                    if (String.Compare(Path.GetFileName(now), namafile) == 0 && this.found == false)
+                    if (string.Compare(Path.GetFileName(now), Namafile) == 0 && this.found == false)
                     {
                         if (this.all_occur == false)
                         {
@@ -78,9 +100,9 @@ namespace MariKitaCari
             }
             foreach (string sol in this.solution)
             {
-                foreach (file_folder ok in this.bfs_show)
+                foreach (Folder ok in this.bfs_show)
                 {
-                    int coba =this.substring(ok.direct, sol);
+                    int coba = this.substring(ok.direct, sol);
                     if (coba != -1)
                     {
                         this.jalur.Enqueue(ok.direct);

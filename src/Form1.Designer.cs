@@ -49,9 +49,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelOutputTimeSpent = new System.Windows.Forms.Label();
             this.listLinkPath = new System.Windows.Forms.TableLayoutPanel();
+            this.linkLabelList = new System.Windows.Forms.LinkLabel();
             this.layoutTop.SuspendLayout();
             this.layoutLeft.SuspendLayout();
             this.layoutRight.SuspendLayout();
+            this.listLinkPath.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutTop
@@ -97,10 +99,10 @@
             this.layoutLeft.Location = new System.Drawing.Point(12, 48);
             this.layoutLeft.Name = "layoutLeft";
             this.layoutLeft.RowCount = 11;
-            this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.54546F));
-            this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.45454F));
-            this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.34783F));
+            this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.65217F));
+            this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77F));
             this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
@@ -108,7 +110,7 @@
             this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.layoutLeft.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.layoutLeft.Size = new System.Drawing.Size(244, 302);
+            this.layoutLeft.Size = new System.Drawing.Size(244, 345);
             this.layoutLeft.TabIndex = 1;
             // 
             // labelInput
@@ -126,7 +128,7 @@
             // 
             // ButtonChangeFolder
             // 
-            this.ButtonChangeFolder.Location = new System.Drawing.Point(3, 49);
+            this.ButtonChangeFolder.Location = new System.Drawing.Point(3, 48);
             this.ButtonChangeFolder.Name = "ButtonChangeFolder";
             this.ButtonChangeFolder.Size = new System.Drawing.Size(96, 23);
             this.ButtonChangeFolder.TabIndex = 1;
@@ -147,7 +149,7 @@
             // labelPath
             // 
             this.labelPath.AutoSize = true;
-            this.labelPath.Location = new System.Drawing.Point(3, 76);
+            this.labelPath.Location = new System.Drawing.Point(3, 77);
             this.labelPath.Name = "labelPath";
             this.labelPath.Size = new System.Drawing.Size(51, 13);
             this.labelPath.TabIndex = 3;
@@ -157,7 +159,7 @@
             // 
             this.labelFileName.AutoSize = true;
             this.labelFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFileName.Location = new System.Drawing.Point(3, 111);
+            this.labelFileName.Location = new System.Drawing.Point(3, 154);
             this.labelFileName.Name = "labelFileName";
             this.labelFileName.Size = new System.Drawing.Size(96, 13);
             this.labelFileName.TabIndex = 4;
@@ -165,7 +167,7 @@
             // 
             // textBoxFileName
             // 
-            this.textBoxFileName.Location = new System.Drawing.Point(3, 133);
+            this.textBoxFileName.Location = new System.Drawing.Point(3, 176);
             this.textBoxFileName.Name = "textBoxFileName";
             this.textBoxFileName.Size = new System.Drawing.Size(238, 22);
             this.textBoxFileName.TabIndex = 5;
@@ -174,7 +176,7 @@
             // checkBoxOccurence
             // 
             this.checkBoxOccurence.AutoSize = true;
-            this.checkBoxOccurence.Location = new System.Drawing.Point(3, 164);
+            this.checkBoxOccurence.Location = new System.Drawing.Point(3, 207);
             this.checkBoxOccurence.Name = "checkBoxOccurence";
             this.checkBoxOccurence.Size = new System.Drawing.Size(132, 17);
             this.checkBoxOccurence.TabIndex = 6;
@@ -185,7 +187,7 @@
             // 
             this.labelSearchingMethod.AutoSize = true;
             this.labelSearchingMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSearchingMethod.Location = new System.Drawing.Point(3, 190);
+            this.labelSearchingMethod.Location = new System.Drawing.Point(3, 233);
             this.labelSearchingMethod.Name = "labelSearchingMethod";
             this.labelSearchingMethod.Size = new System.Drawing.Size(143, 13);
             this.labelSearchingMethod.TabIndex = 7;
@@ -194,7 +196,7 @@
             // radiobtnBFS
             // 
             this.radiobtnBFS.AutoSize = true;
-            this.radiobtnBFS.Location = new System.Drawing.Point(3, 213);
+            this.radiobtnBFS.Location = new System.Drawing.Point(3, 256);
             this.radiobtnBFS.Name = "radiobtnBFS";
             this.radiobtnBFS.Size = new System.Drawing.Size(45, 17);
             this.radiobtnBFS.TabIndex = 8;
@@ -205,7 +207,7 @@
             // radiobtnDFS
             // 
             this.radiobtnDFS.AutoSize = true;
-            this.radiobtnDFS.Location = new System.Drawing.Point(3, 241);
+            this.radiobtnDFS.Location = new System.Drawing.Point(3, 284);
             this.radiobtnDFS.Name = "radiobtnDFS";
             this.radiobtnDFS.Size = new System.Drawing.Size(46, 17);
             this.radiobtnDFS.TabIndex = 9;
@@ -215,7 +217,7 @@
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(3, 269);
+            this.buttonSearch.Location = new System.Drawing.Point(3, 312);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(96, 23);
             this.buttonSearch.TabIndex = 10;
@@ -304,12 +306,23 @@
             // 
             this.listLinkPath.ColumnCount = 1;
             this.listLinkPath.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.listLinkPath.Controls.Add(this.linkLabelList, 0, 0);
             this.listLinkPath.Location = new System.Drawing.Point(3, 390);
             this.listLinkPath.Name = "listLinkPath";
             this.listLinkPath.RowCount = 1;
             this.listLinkPath.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.listLinkPath.Size = new System.Drawing.Size(504, 68);
             this.listLinkPath.TabIndex = 5;
+            // 
+            // linkLabelList
+            // 
+            this.linkLabelList.AutoSize = true;
+            this.linkLabelList.Location = new System.Drawing.Point(3, 0);
+            this.linkLabelList.Name = "linkLabelList";
+            this.linkLabelList.Size = new System.Drawing.Size(65, 13);
+            this.linkLabelList.TabIndex = 0;
+            this.linkLabelList.TabStop = true;
+            this.linkLabelList.Text = "linkLabelList";
             // 
             // Form1
             // 
@@ -329,6 +342,8 @@
             this.layoutLeft.PerformLayout();
             this.layoutRight.ResumeLayout(false);
             this.layoutRight.PerformLayout();
+            this.listLinkPath.ResumeLayout(false);
+            this.listLinkPath.PerformLayout();
             this.ResumeLayout(false);
 
     }
@@ -356,6 +371,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelOutputTimeSpent;
         private System.Windows.Forms.TableLayoutPanel listLinkPath;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelList;
     }
 }
 
