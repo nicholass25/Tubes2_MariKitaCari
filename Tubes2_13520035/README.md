@@ -1,6 +1,6 @@
 # Tubes Stima 2 - MariKitaCari
 
-# Pengaplikasian Algoritma BFS dan DFS dalam Implementasi Folder Crawling
+## Pengaplikasian Algoritma BFS dan DFS dalam Implementasi Folder Crawling
 
 Tugas Besar II IF2211 Strategi Algoritma
 
