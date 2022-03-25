@@ -115,6 +115,7 @@ namespace MariKitaCari
                         if (String.Compare(Path.GetFileName(anak.direct), bfs_search.Namafile) == 0 && i < bfs_search.solution.Count())
                         {
                             graph.FindNode(anak.direct).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
+                            temu=true;
                             i++;
                             listLink.Add(anak.direct);
                             //LinkLabel label = new LinkLabel();
