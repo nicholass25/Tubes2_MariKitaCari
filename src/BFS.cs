@@ -10,6 +10,8 @@ namespace MariKitaCari
         public bool found;
         public bool all_occur;
         public Queue<Folder> bfs_show = new Queue<Folder>();
+        public Queue<string> solution = new Queue<string>();
+        public Queue<string> jalur = new Queue<string>();
 
         public BFS(string nama, bool all_occur)
         {
@@ -62,24 +64,28 @@ namespace MariKitaCari
                         bfs_show.Enqueue(new Folder(now, file));
                     }
                 }
-                // if file
-                // else
-                // {
-                //     if (found == false)
-                //     {
-                //         if (Path.GetFileName(now) == Namafile)
-                //         {
-                //             if (all_occur == false)
-                //             {
-                //                 // System.Environment.Exit(0);
-                //             }
-                //         }
-                //         else
-                //         {
-                //             //
-                //         }
-                //     }
-                // }
+                else
+                {
+                    if (String.Compare(Path.GetFileName(now), namafile) == 0 && this.found == false)
+                    {
+                        if (this.all_occur == false)
+                        {
+                            this.found = true;
+                        }
+                        solution.Enqueue(now);
+                    }
+                }
+            }
+            foreach (string sol in this.solution)
+            {
+                foreach (file_folder ok in this.bfs_show)
+                {
+                    int coba =this.substring(ok.direct, sol);
+                    if (coba != -1)
+                    {
+                        this.jalur.Enqueue(ok.direct);
+                    }
+                }
             }
         }
     }

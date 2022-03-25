@@ -78,24 +78,30 @@ namespace MariKitaCari
                     bool temu=false; // handle all occur atau engga
 
                     bfs_search.BFS_Search(root_folder);
+                    int i=0;
                     foreach (Folder anak in bfs_search.bfs_show)
                     {
                         foreach (Folder ortu in bfs_search.bfs_show)
                         {
                             if (anak.parent == ortu.direct)
                             {
-                                graph.AddEdge(ortu.direct, anak.direct);
+                                if (bfs_search.jalur.Contains(anak.direct))
+                                {
+                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                                }
+                                else
+                                {
+                                    graph.AddEdge(ortu.direct, anak.direct);
+                                }
                                 graph.FindNode(anak.parent).Label.Text = new DirectoryInfo(anak.parent).Name;
                                 graph.FindNode(anak.direct).Label.Text = new DirectoryInfo(anak.direct).Name;
                                 break;
                             }
                         }
-                        if (String.Compare(Path.GetFileName(anak.direct), bfs_search.Namafile) == 0 && temu==false)
+                        if (String.Compare(Path.GetFileName(anak.direct), bfs_search.Namafile) == 0 && i < bfs_search.solution.Count())
                         {
-                            if(checkBoxOccurence.Checked==false){
-                                temu=true;
-                            }
                             graph.FindNode(anak.direct).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
+                            i++;
                             LinkLabel label = new LinkLabel();
                             label.Text = anak.direct;
                             listLinkPath.Controls.Add(label);
@@ -126,25 +132,30 @@ namespace MariKitaCari
 
                     // create graph content
                     dfs_search.DFS_Start(root_folder);
+                    int i=0;
                     foreach (Folder anak in dfs_search.urutan)
                     {
                         foreach (Folder ortu in dfs_search.urutan)
                         {
                             if (anak.parent == ortu.direct)
                             {
-                                graph.AddEdge(ortu.direct, anak.direct);
+                                if (dfs_search.jalur.Contains(anak.direct))
+                                {
+                                    graph.AddEdge(ortu.direct, anak.direct).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                                }
+                                else
+                                {
+                                    graph.AddEdge(ortu.direct, anak.direct);
+                                }
                                 graph.FindNode(anak.parent).Label.Text = new DirectoryInfo(anak.parent).Name;
                                 graph.FindNode(anak.direct).Label.Text = new DirectoryInfo(anak.direct).Name;
                                 break;
                             }
                         }
-                        if (String.Compare(Path.GetFileName(anak.direct), dfs_search.Namafile) == 0 && temu==false)
+                        if (String.Compare(Path.GetFileName(anak.direct), dfs_search.Namafile) == 0 && i < dfs_search.solution.Count())
                         {
-                            if(checkBoxOccurence.Checked==false){
-                                temu=true;
-                            }
                             graph.FindNode(anak.direct).Attr.FillColor = Microsoft.Msagl.Drawing.Color.Green;
-
+                            i++;
                         }
                     }
                     Timer.Stop();
