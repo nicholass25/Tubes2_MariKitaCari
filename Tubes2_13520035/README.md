@@ -9,7 +9,7 @@ MariKitaCari merupakan aplikasi GUI sederhana yang memodelkan fitur dari file ex
 
 ## Requirement
 - Sistem operasi: Windows 7 ke atas
-- Pengguna dapat langsung menjalankan file executable pada directory ```bin\MariKitaCari.exe``` atau mem-build ulang program.
+- Pengguna dapat langsung menjalankan file executable pada directory ```bin\Debug\MariKitaCari.exe``` atau mem-build ulang program.
 
 ## Program Rebuilding
 1. Buka Visual Studio
