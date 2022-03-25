@@ -9,24 +9,24 @@ MariKitaCari merupakan aplikasi GUI sederhana yang memodelkan fitur dari file ex
 
 ## Requirement
 - Sistem operasi: Windows 7 ke atas
-- Pengguna dapat langsung menjalankan file executable pada directory \'bin\MariKitaCari.exe'\ atau mem-build ulang program.
+- Pengguna dapat langsung menjalankan file executable pada directory ```bin\MariKitaCari.exe``` atau mem-build ulang program.
 
 ## Program Rebuilding
 1. Buka Visual Studio
 2. Buka menu Tools > NuGet Package Manager > Package Manager Console
 3. Gunakan command
-\'Install-Package AutomaticGraphLayout -Version 1.1.11'\
-\'Install-Package AutomaticGraphLayout.Drawing -Version 1.1.11'\
-\'Install-Package AutomaticGraphLayout.WpfGraphControl -Version 1.1.11'\
-\'Install-Package AutomaticGraphLayout.GraphViewerGDI -Version 1.1.11'\
+```Install-Package AutomaticGraphLayout -Version 1.1.11```
+```Install-Package AutomaticGraphLayout.Drawing -Version 1.1.11```
+```Install-Package AutomaticGraphLayout.WpfGraphControl -Version 1.1.11```
+```Install-Package AutomaticGraphLayout.GraphViewerGDI -Version 1.1.11```
 Untuk pengguna Windows 7 ke bawah,
-\'Install-Package Microsoft.WindowsAPICodePack-Shell -Version 1.1.0'\
+```Install-Package Microsoft.WindowsAPICodePack-Shell -Version 1.1.0```
 4. Build project
 5. File .exe tersedia pada directory seperti di atas
 
 ## Usage
 
-1. Execute \'MariKitaCari.exe'\
+1. Execute ```MariKitaCari.exe```
 2. Pilih starting directory melalui button "Choose Folder..."
 3. Isi nama file yang ingin dicari dengan menuliskannya pada text box
 4. Isi metode pencarian dengan memilih salah satu radio button
